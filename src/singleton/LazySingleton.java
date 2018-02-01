@@ -9,7 +9,7 @@ package singleton;
  */
 public class LazySingleton implements Runnable {
 	
-	public static LazySingleton instance = null;
+	private static LazySingleton instance = null;
 	
 	private LazySingleton() {
 		System.out.println("LazySingleton is created");
@@ -21,17 +21,17 @@ public class LazySingleton implements Runnable {
 		}
 		return instance;
 	}
-	
+
 	public void run() {
 		long beginTime = System.currentTimeMillis();
-		for (int i = 0; i < 10000; i++) {
+		for (int i = 0; i < 1000000; i++) {
 			LazySingleton.getInstance();
 		}
 		System.out.println(System.currentTimeMillis() - beginTime);
 	}
 	
 	public static void main(String[] args) {
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 5; i++) {
 			new Thread(new LazySingleton()).start();
 		}
 	}

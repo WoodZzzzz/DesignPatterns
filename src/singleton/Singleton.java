@@ -9,26 +9,26 @@ package singleton;
  */
 public class Singleton implements Runnable {
 
-	private static Singleton singleton = new Singleton();
+	private static Singleton instance = new Singleton();
 	
-	private Singleton()	 {
+	private Singleton() {
 		System.out.println("Singleton is created");
 	}
 	
 	public static Singleton getInstance() {
-		return singleton;
+		return instance;
 	}
-	
+
 	public void run() {
 		long beginTime = System.currentTimeMillis();
-		for (int i = 0; i < 10000; i++) {
+		for (int i = 0; i < 1000000; i++) {
 			Singleton.getInstance();
 		}
 		System.out.println(System.currentTimeMillis() - beginTime);
 	}
 	
 	public static void main(String[] args) {
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 5; i++) {
 			new Thread(new Singleton()).start();
 		}
 	}
