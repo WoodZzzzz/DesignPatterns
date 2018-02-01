@@ -14,12 +14,26 @@ public class LazySingleton implements Runnable {
 	private LazySingleton() {
 		System.out.println("LazySingleton is created");
 	}
-	
+	/**
+	 * 
+	 * @描述：此方法造成的问题是在获取实例的时候效率低下， 可以将获取线程方法抽离出来
+	 * @作者：Zhouwj
+	 * @时间：2018年2月1日 上午11:26:25
+	 * @return
+	 * LazySingleton
+	 */
 	public static synchronized LazySingleton getInstance() {
-		if (instance == null) {
+		/*if (instance == null) {
 			instance = new LazySingleton();
 		}
+		return instance;*/
+		if (instance == null) {
+			synchronized (LazySingleton.class) {
+				instance = new LazySingleton();
+			}
+		}
 		return instance;
+		
 	}
 
 	public void run() {
