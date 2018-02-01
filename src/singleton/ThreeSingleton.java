@@ -27,7 +27,6 @@ public class ThreeSingleton implements Runnable {
 		return threeSingleton;
 	}
 
-	@Override
 	public void run() {
 		// TODO Auto-generated method stub
 		
