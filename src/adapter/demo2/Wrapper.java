@@ -1,5 +1,6 @@
 package adapter.demo2;
 
+import adapter.Source;
 import adapter.Targetable;
 
 public class Wrapper implements Targetable {

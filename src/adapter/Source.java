@@ -1,4 +1,4 @@
-package adapter.demo2;
+package adapter;
 
 public class Source {
 
