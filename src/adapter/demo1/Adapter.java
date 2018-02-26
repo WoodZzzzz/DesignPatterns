@@ -1,7 +1,7 @@
 package adapter.demo1;
 
+import adapter.Source;
 import adapter.Targetable;
-import adapter.demo2.Source;
 
 
 public class Adapter extends Source implements Targetable {
