@@ -14,10 +14,10 @@ public class StaticSingleton implements Runnable {
 	}
 	
 	private static class SingletonHolder {
-		private static StaticSingleton instance = new StaticSingleton();
+		private static final StaticSingleton instance = new StaticSingleton();
 	}
 	
-	public static StaticSingleton getInstance() {
+	public static final StaticSingleton getInstance() {
 		return SingletonHolder.instance;
 	}
 	
